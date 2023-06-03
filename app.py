@@ -13,8 +13,8 @@ def load_lottieurl(url):
 
 # --- Load assets---
 lottie_pic = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_7X0d6AzODk.json")
-img_contact_form = Image.open("Images/images.jpeg")
-img_animation = Image.open("Images/wallpic.jpeg")
+img_1 = Image.open("Images/cruise.png")
+img_2 = Image.open("Images/mapper.png")
 
 
 # ----HEADER-----
@@ -33,11 +33,12 @@ with st.container():
     with left_column:
         st.header("What I do")
         st.write("##")
-        st.write(""" I am transitioning from Site managing into software development through a variety of:
+        st.write(""" I am transitioning from Site managing into software development through a variety of: 
         - courses,
-        - tutorials, 
+        - tutorials,
         - boot camps, 
-        - books, etc. 
+        - books,
+        -  etc. 
 
     Also, looking for opportunities that would allow me full time software development experience for a better and more versatile understanding of programming.
         """)
@@ -53,10 +54,18 @@ with st.container():
     st.write("##")
     image_column, text_column = st.columns((1,2))
     with image_column:
-       st.image(img_animation)
-       st.image(img_contact_form)
+       st.image(img_1)
     with text_column:
-        st.subheader("Integrate Lottie Animation Inside your Streamlit App")
+        st.subheader("A Javascript project that exploits the Object Oriented Programming concepts")
         st.write(
-            """Learn how to....""")        
-        st.markdown("[Watch video...](https://static.lottiefiles.com/images/svg/copy.svg)")
+            """Learn how to navigate using Cruise ships GUI""")        
+        st.markdown("[Find it here...](https://github.com/Claudiu-Petre/Cruise-ships)")
+
+with st.container():
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        st.image(img_2)
+    with text_column:
+        st.subheader('')
+        st.write("""Learn how to track your favorite sports using Mapper""")
+        st.markdown('[Find it here...](https://github.com/Claudiu-Petre/mapper)')
