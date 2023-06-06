@@ -30,6 +30,7 @@ lottie_pic1 = load_lottieurl1("https://assets9.lottiefiles.com/packages/lf20_7X0
 lottie_pic2 = load_lottieurl2("https://assets7.lottiefiles.com/packages/lf20_9W7N8f.json")
 img_1 = Image.open("Images/cruise.png")
 img_2 = Image.open("Images/mapper.png")
+img_3 = Image.open("Images/dosher.png")
 
 
 # ----HEADER-----
@@ -98,7 +99,7 @@ st.write("---")
 with st.container():
     image_column, text_column = st.columns((1, 2))
     with image_column:
-        st.image(img_2)
+        st.image(img_3)
     with text_column:
         st.subheader('Objects, DOM manipulation, Functions and Arrays in JS')
         st.write("""Manage your finances with Do$her""")
