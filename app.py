@@ -3,9 +3,15 @@ import requests
 from streamlit_lottie import st_lottie
 from PIL import Image
 
-st.set_page_config(page_title="My Webpage", page_icon="👾", layout="wide")
+st.set_page_config(page_title="My Webpage", page_icon="👾", layout="centered")
 
-def load_lottieurl(url):
+def load_lottieurl1(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+def load_lottieurl2(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
@@ -20,17 +26,18 @@ local_css("style/app.css")
     
 
 # --- Load assets---
-lottie_pic = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_7X0d6AzODk.json")
+lottie_pic1 = load_lottieurl1("https://assets9.lottiefiles.com/packages/lf20_7X0d6AzODk.json")
+lottie_pic2 = load_lottieurl2("https://assets7.lottiefiles.com/packages/lf20_9W7N8f.json")
 img_1 = Image.open("Images/cruise.png")
 img_2 = Image.open("Images/mapper.png")
 
 
 # ----HEADER-----
 with st.container():
-    st.subheader("Hi, my name is Claudiu 🖐")
+    st.subheader("Hi, I am Claudiu 🖐")
     st.title("Junior Software Engineer from Leeds, UK 🇬🇧")
     st.subheader("JAVASCRIPT, REACT, EXPRESS, HTML, CSS, PYTHON")
-    st.write("I am passionate about programming and amazed about how a few lines of code can change your life...and others 😂 ")
+    st.write("Passionate about programming and amazed about how a few lines of code can change your life...and others 😂 ")
     st.write("[Learn more >](https://github.com/Claudiu-Petre)")
     st.markdown("")
 
@@ -41,24 +48,30 @@ with st.container():
     with left_column:
         st.header("What I do")
         st.write("##")
-        st.write(""" I am transitioning from Site managing into software development through a variety of: 
+        st.write(""" 
+    
+    
+    I am transitioning from Site Managing into Software Development by learning and assimilating a variety of technologies through a variety of: 
     - courses,
     - tutorials,
     - boot camps, 
-    - books,
-    -  etc. 
+    - books and articles,
+    - etc. 
 
-    Also, looking for opportunities that would allow me full time software development experience for a better and more versatile understanding of programming.
+    Also, I am looking for opportunities that would allow me full time software development experience for:
+    - a comprehensive understanding of programming,
+    - personal contribution to business and domestic solutions,
+    - building a versatile programming style.
         """)
 
     with right_column:
-        st_lottie(lottie_pic, height=600, key="coding")
+        st_lottie(lottie_pic1, height=600, key="coding")
 
 # --- Projects---
 
 with st.container():
     st.write("---")
-    st.header("My Projects")
+    st.header("Projects... just a few")
     st.write("##")
     image_column, text_column = st.columns((1,2))
     with image_column:
@@ -80,6 +93,16 @@ with st.container():
         st.write("""Learn how to track your favorite sports using Mapper""")
         st.markdown('[Find it here...](https://github.com/Claudiu-Petre/mapper)')
 
+st.write("---")
+
+with st.container():
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        st.image(img_2)
+    with text_column:
+        st.subheader('Objects, DOM manipulation, Functions and Arrays in JS')
+        st.write("""Manage your finances with Do$her""")
+        st.markdown('[Find it here...](https://github.com/Claudiu-Petre/dosher)')
 # ---- Contact----
 with st.container():
     st.write("---")
@@ -99,4 +122,4 @@ with st.container():
     with left_column:
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
-        st.empty()
+        st_lottie(lottie_pic2, height=300, key="contact")
